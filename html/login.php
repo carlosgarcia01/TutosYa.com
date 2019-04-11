@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php session_start();?>  
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -52,23 +53,33 @@
               <h5 class="card-title text-center">Ingresar</h5>
               <form class="form-signin" method="POST">
                 <div class="form-label-group">
-                  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                  <label for="inputEmail">Correo Electronico</label>
+                  <input type="text" name="usuario" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                  <label for="inputEmail">Usuario</label>
                 </div>
   
                 <div class="form-label-group">
-                  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                  <input type="password" name="contrasena" id="inputPassword" class="form-control" placeholder="Password" required>
                   <label for="inputPassword">Contraseña</label>
                 </div>
   
-                <div class="custom-control custom-checkbox mb-3">
-                  <input type="checkbox" class="custom-control-input" id="customCheck1">
-                  <label class="custom-control-label" for="customCheck1">Olvide contraseña</label>
-                </div>
                 <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Ingresar</button>
                 <hr class="my-4">
                 
               </form>
+              <?php 
+                if($_POST){
+                  $usu=$_POST['usuario'];
+                  $contra=$_POST['contrasena'];
+                  $localhost=mysqli_connect("localhost","root","carlosg","tutosya");
+                  $select=mysqli_query($localhost,"select * from ususario where ususario='$usu' and contraseña='$contra'");
+                  $select_row=mysqli_fetch_array($select) ;
+                  if($select_row){
+                    echo 'ingreso';
+                  }else{
+                    echo 'No';
+                  }
+                }
+              ?>
             </div>
           </div>
         </div>
