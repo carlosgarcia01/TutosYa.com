@@ -1,11 +1,30 @@
 <?php
 
-$conn=mysqli_connect("127.0.01","root","carlosg","tutosya");
+    $localhost=mysqli_connect("localhost","root","carlosg","tutosya");
 
-    if($conn->connet_error)
-        die($conn->conneet_error);
+    $select=mysqli_query($localhost,"Select * from asignaturas");
+
+?>
+
+<table border='1'>
+    <thead>
+        <tr>
+            <td>Id:</td>
+            <td>Nombre:</td>
+        </tr>
+    </thead>
+    <?php
+        while( $select_row=mysqli_fetch_array($select)    ){
+            ?>
+            <tr>
+                <td><?php echo $select_row['idasignaturas']; ?> </td>
+                <td><?php echo $select_row['nombre']; ?> </td>
+
+
+                <td><a href='update.php?idasignaturas=<?php echo $select_row['idasignaturas']?>'>modificar</a> </td>
+            </tr>
+            <?php } ?>
 
     
-    print('Conexion exitosa \n');
-    exit(1);
-?>
+
+</table>
