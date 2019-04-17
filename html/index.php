@@ -24,7 +24,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="index.html">Home
+            <a class="nav-link" href="index.php">Home
                   <span class="sr-only">(current)</span>
                 </a>
           </li>
@@ -32,7 +32,7 @@
             <a class="nav-link" href="pagos.html">Suscribete</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="registro.html">Registrate</a>
+            <a class="nav-link" href="registro.php">Registrate</a>
           </li>
           
           <li class="nav-item">
