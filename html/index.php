@@ -11,6 +11,9 @@
     <title>TutosYa</title>
 </head>
 <body>
+
+
+
     <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="container">
@@ -54,49 +57,64 @@
             <h2 class="display-8">TutosYa</h2>
             <section class="search-banner text-white py-3 form-arka-plan" id="search-banner">
               <div class="container py-5 my-5">
-                  <div class="row text-center pb-4">
-                      <div class="col-md-12">
-                          
-                      </div>
-                  </div>
                   <div class="row">
                       <div class="col-md-12">
                           <div class="card acik-renk-form" style="background: none; border: none ">
                               <div class="card-body">
                                   <div class="row">
+                                      
                                       <div class="col-md-4">
-                                          <div class="form-group ">
-                                              <select id="iller" class="form-control" >
-                                                  <option selected>Ciudad</option>
-                                                  <option>Manizales</option>
-                                                  <option>Villamaria</option>
-                                              </select>
-                                          </div>
+                                        <div class="form-group ">
+                                          <select id="ilceler" class="form-control" >
+                                              <option selected>Departamento</option>
+                                                <?php
+                                                $localhost=mysqli_connect("localhost","root","carlosg","tutosya");
+                                                $select=mysqli_query($localhost,"Select * from departamento");
+
+                                                while($departamento=mysqli_fetch_array($select) ){
+                                                  
+                                                echo "<option value='".$departamento['id']."'>" .$departamento['nombre']. "</option>";
+                                                }?>
+                                          </select>
+                                        </div>
                                       </div>
+
                                       <div class="col-md-4">
-                                          <div class="form-group ">
-                                              <select id="ilceler" class="form-control" >
-                                                  <option selected>Departamento</option>
-                                                  <option>Caldas</option>
-                                                  <option>Cali</option>
-                                                  <option>Medellin</option>
-                                                  <option>Antioquia</option>
-                                              </select>
-                                          </div>
-                                      </div>
+                                        <div class="form-group ">
+                                          <select id="ilceler" class="form-control" name="select">
+                                            <option selected> Ciudad</option>
+                                            <?php
+                                              $localhost=mysqli_connect("localhost","root","carlosg","tutosya");
+                                              $select=mysqli_query($localhost,"Select * from ciudad");
+
+                                              while($ciudad=mysqli_fetch_array($select) ){
+                                                
+                                              echo "<option value='".$ciudad['id']."'>" .$ciudad['nombre']. "</option>";
+                                              }?>
+                                          </select>
+                                        </div>
+                                      </div> 
+
+                                      
+
+
                                       <div class="col-md-4">
                                           <div class="form-group ">
                                               <select id="arac-turu" class="form-control" >
                                                   <option selected>Asignatura</option>
-                                                  <option>Español</option>
-                                                  <option>Matematicas</option>
-                                                  <option>Fisica</option>
-                                                  <option>Contabilidad</option>
-                                                  <option>Fotografia</option>
-            
+
+                                                    <?php
+                                                      $localhost=mysqli_connect("localhost","root","carlosg","tutosya");
+                                                      $select=mysqli_query($localhost,"Select * from asignatura");
+
+                                                      while($asignatura=mysqli_fetch_array($select) ){
+                                                        
+                                                      echo "<option value='".$asignatura['id']."'>" .$asignatura['nombre']. "</option>";
+                                                    }?>
                                               </select>
                                           </div>
                                       </div>
+
                                   </div>
                                   <p class="font-weight-light text-dark">buscar</p>
                                   <div class="row">
@@ -111,7 +129,6 @@
                                   </div>
                               </div>
                           </div>
-            
                       </div>
                   </div>
               </div>
