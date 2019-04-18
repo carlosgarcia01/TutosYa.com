@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<?php session_start();?>  
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -34,11 +33,11 @@
                 <a class="nav-link" href="pagos.html">Suscribete</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="registro.html">Registrate</a>
+                <a class="nav-link" href="registro.php">Registrate</a>
               </li>
               
               <li class="nav-item">
-                <a class="nav-link" href="login.html">iniciar sesión</a>
+                <a class="nav-link" href="login.php">iniciar sesión</a>
               </li>
             </ul>
           </div>
@@ -90,6 +89,11 @@
                   <input type="email" name="correo" id="inputEmail" class="form-control" placeholder="Email address" required>
                   <label for="inputEmail">Correo electronico</label>
                 </div>
+
+                <div class="form-label-group">
+                  <input type="text" name="tel" id="inputTel" class="form-control" placeholder="Telefono" required>
+                  <label for="inputTel">Telefono</label>
+                </div>
                 
                 <hr>
   
@@ -103,7 +107,14 @@
                   <label for="inputConfirmPassword">Confirmar contraseña</label>
                 </div>
 
-                <?php
+
+                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Registrate</button>
+                <a class="d-block text-center mt-2 small" href="#">Ingresar</a>
+                <hr class="my-4">
+              </form>  
+
+              
+              <?php
                   if($_POST){
                     $cont=$_POST['contrasena'];
                     $con_cont= $_POST['conf_contra'];
@@ -112,34 +123,31 @@
                     }else{
                       $usu=$_POST['usuario'];
                       $correo=$_POST['correo'];
+                      $cc=$_POST['cc'];
+                      $red=$_POST['red'];
+                      $ciudad=$_POST['selectCiudad'];
+                      $correo=$_POST['correo'];
+                      $tel=$_POST['tel'];
                       $localhost=mysqli_connect("localhost","root","carlosg","tutosya");
-                      $insertUsu=mysqli_query
-                      $insertPer=mysqli_query($localhost,"INSERT INTO `tutosya`.`persona` (`id`, `nombre`, `cedula`, `correo`, `red_social`, `telefono`, `ciudad_id`, `usuario_id`) VALUES ('4', 'Prueba', '444', 'pr@gmail.com', 'sada', '444', '1', '2');");
+                      //mysqli_query($localhost,"insert into usuario ( `usuario`, `contrasena`) VALUES ('$usu', '$cont')");
+
+                      $idciudad=mysqli_query($localhost,"select id from ciudad where nombre='$ciudad'");
+                      $idciudad1=mysqli_fetch_array($idciudad);
+                      $idUsu=mysqli_query($localhost,"select id from usuario where usuario='$usu'");
+                      $idUsu1=mysqli_fetch_array($idUsu);
+                      //$var=mysqli_fetch_array($ciudad);
+                    
+                      //echo "'<h3>'$idUsu'</h3>'";
+                      $insertPer=mysqli_query($localhost,"insert into persona (`nombre`, `cedula`, `correo`, `red_social`, `telefono`, `ciudad_id`,`usuario_id`) VALUES ('$usu', '$cc', '$correo', '$red', '$tel', $idciudad1, $idUsu1)");
+                      if($insertPer){
+                        echo "Si";
+                      }else{
+                        echo "No";
+                      } 
                     }
                   }
                 ?>
 
-                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Registrate</button>
-                <a class="d-block text-center mt-2 small" href="#">Ingresar</a>
-                <hr class="my-4">
-                
-              </form>
-              <?php 
-                if($_POST){
-                  $usu=$_POST['usuario'];
-                  $contra=$_POST['contrasena'];
-                  $localhost=mysqli_connect("localhost","root","carlosg","tutosya");
-                  $select=mysqli_query($localhost,"select * from ususario where ususario='$usu' and contraseña='$contra'");
-                  $select_row=mysqli_fetch_array($select) ;
-                  if($select_row){
-                    echo 'ingreso';
-                  }else{
-                    echo 'No';
-                  }
-                }
-              ?>
-              
-             
             </div>
           </div>
         </div>
