@@ -126,19 +126,18 @@
                       $cc=$_POST['cc'];
                       $red=$_POST['red'];
                       $ciudad=$_POST['selectCiudad'];
-                      $correo=$_POST['correo'];
                       $tel=$_POST['tel'];
                       $localhost=mysqli_connect("localhost","root","carlosg","tutosya");
-                      //mysqli_query($localhost,"insert into usuario ( `usuario`, `contrasena`) VALUES ('$usu', '$cont')");
+                      mysqli_query($localhost,"insert into usuario ( `usuario`, `contrasena`) VALUES ('$usu', '$cont')");
 
-                      $idciudad=mysqli_query($localhost,"select id from ciudad where nombre='$ciudad'");
-                      $idciudad1=mysqli_fetch_array($idciudad);
+                      
+                      
                       $idUsu=mysqli_query($localhost,"select id from usuario where usuario='$usu'");
-                      $idUsu1=mysqli_fetch_array($idUsu);
-                      //$var=mysqli_fetch_array($ciudad);
+                      $idUsu2=mysqli_fetch_array($idUsu);
+                      //echo $idUsu2[0];
                     
                       //echo "'<h3>'$idUsu'</h3>'";
-                      $insertPer=mysqli_query($localhost,"insert into persona (`nombre`, `cedula`, `correo`, `red_social`, `telefono`, `ciudad_id`,`usuario_id`) VALUES ('$usu', '$cc', '$correo', '$red', '$tel', $idciudad1, $idUsu1)");
+                      $insertPer=mysqli_query($localhost,"insert into persona (`nombre`, `cedula`, `correo`, `red_social`, `telefono`, `ciudad_id`,`usuario_id`) VALUES ('$usu', '$cc', '$correo', '$red', '$tel', $ciudad, $idUsu2[0])");
                       if($insertPer){
                         echo "Si";
                       }else{
