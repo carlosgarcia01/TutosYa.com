@@ -116,33 +116,37 @@
               
               <?php
                   if($_POST){
-                    $cont=$_POST['contrasena'];
-                    $con_cont= $_POST['conf_contra'];
-                    if($cont!=$con_cont){
-                      echo '<h7 style="color: red">Las Contrase&ntildeas no coinciden</h7>';
-                    }else{
-                      $usu=$_POST['usuario'];
-                      $correo=$_POST['correo'];
-                      $cc=$_POST['cc'];
-                      $red=$_POST['red'];
-                      $ciudad=$_POST['selectCiudad'];
-                      $tel=$_POST['tel'];
-                      $localhost=mysqli_connect("localhost","root","carlosg","tutosya");
-                      mysqli_query($localhost,"insert into usuario ( `usuario`, `contrasena`) VALUES ('$usu', '$cont')");
-
-                      
-                      
-                      $idUsu=mysqli_query($localhost,"select id from usuario where usuario='$usu'");
-                      $idUsu2=mysqli_fetch_array($idUsu);
-                      //echo $idUsu2[0];
-                    
-                      //echo "'<h3>'$idUsu'</h3>'";
-                      $insertPer=mysqli_query($localhost,"insert into persona (`nombre`, `cedula`, `correo`, `red_social`, `telefono`, `ciudad_id`,`usuario_id`) VALUES ('$usu', '$cc', '$correo', '$red', '$tel', $ciudad, $idUsu2[0])");
-                      if($insertPer){
-                        echo "Si";
+                    $localhost=mysqli_connect("localhost","root","carlosg","tutosya");
+                    $usuariosRegis=mysqli_query($localhost,"select * from usuario");
+                    $usuExiste=0;
+                    while($var=mysqli_fetch_array($usuariosRegis)){
+                      if($var['usuario']==$_POST['usuario']){
+                          $usuExiste=1;
+                          echo '<h7 style="color: red">El usuario ya existe</h7>';
+                          break;
+                      }
+                    }
+                    if($usuExiste==0){
+                      $cont=$_POST['contrasena'];
+                      $con_cont= $_POST['conf_contra'];
+                      if($cont!=$con_cont){
+                        echo '<h7 style="color: red">Las Contrase&ntildeas no coinciden</h7>';
                       }else{
-                        echo "No";
-                      } 
+                        $usu=$_POST['usuario'];
+                        $correo=$_POST['correo'];
+                        $cc=$_POST['cc'];
+                        $red=$_POST['red'];
+                        $ciudad=$_POST['selectCiudad'];
+                        $tel=$_POST['tel'];
+                        $localhost=mysqli_connect("localhost","root","carlosg","tutosya");
+                        mysqli_query($localhost,"insert into usuario ( `usuario`, `contrasena`) VALUES ('$usu', '$cont')");
+
+                        
+                        
+                        $idUsu=mysqli_query($localhost,"select id from usuario where usuario='$usu'");
+                        $idUsu2=mysqli_fetch_array($idUsu);
+                        mysqli_query($localhost,"insert into persona (`nombre`, `cedula`, `correo`, `red_social`, `telefono`, `ciudad_id`,`usuario_id`) VALUES ('$usu', '$cc', '$correo', '$red', '$tel', $ciudad, $idUsu2[0])"); 
+                      }
                     }
                   }
                 ?>
