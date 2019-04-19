@@ -15,7 +15,7 @@
 <body>
  <!-- This snippet uses Font Awesome 5 Free as a dependency. You can download it at fontawesome.io! -->
 
-<body>
+<body >
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container">
@@ -45,11 +45,11 @@
         </div>
       </nav>
 
-    <div class="container">
+    <div class="container" style="padding-top:150px">
       <div class="row">
         <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-          <div class="card card-signin my-5">
-            <div class="card-body">
+          <div class="card card-signin my-5" style="border-radius: 20px">
+            <div class="card-body" >
               <h5 class="card-title text-center">Ingresar</h5>
               <form class="form-signin" method="POST">
                 <div class="form-label-group">
@@ -71,7 +71,7 @@
                   $usu=$_POST['usuario'];
                   $contra=$_POST['contrasena'];
                   $localhost=mysqli_connect("localhost","root","carlosg","tutosya");
-                  $select=mysqli_query($localhost,"select * from ususario where ususario='$usu' and contraseña='$contra'");
+                  $select=mysqli_query($localhost,"select * from usuario where usuario='$usu' and contrasena='$contra'");
                   $select_row=mysqli_fetch_array($select) ;
                   if($select_row){
                     echo 'ingreso';
