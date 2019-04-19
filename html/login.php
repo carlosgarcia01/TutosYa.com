@@ -62,7 +62,7 @@
                   <label for="inputPassword">Contraseña</label>
                 </div>
   
-                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Ingresar</button>
+                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" >Ingresar</button>
                 <hr class="my-4">
                 
               </form>
@@ -72,12 +72,17 @@
                   $contra=$_POST['contrasena'];
                   $localhost=mysqli_connect("localhost","root","carlosg","tutosya");
                   $select=mysqli_query($localhost,"select * from usuario where usuario='$usu' and contrasena='$contra'");
-                  $select_row=mysqli_fetch_array($select) ;
-                  if($select_row){
-                    echo 'ingreso';
+                  unset($_SESSION['usuario']);
+                  if($select_row=mysqli_fetch_array($select)){
+                    if (!isset($_SESSION['usuario'])) {
+                      $_SESSION['usuario']=$_POST['usuario'];
+                      header('Location: perfil.php');
+                    }
                   }else{
-                    echo 'No';
+                    echo '<h7 style="color: red">Usuario o Contrase&ntildea incorrectas</h7>';
                   }
+                 //  ;
+
                 }
               ?>
             </div>
