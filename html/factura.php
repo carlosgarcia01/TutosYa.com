@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php session_start();?> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -47,7 +48,8 @@
 
 
 <div class="container">
-    <div class="row">
+    <div class="row"  style="margin-top:100px">
+        <form method=POST>
         <div class="well col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3" table style="position:absolute;top:30px;left:60px;"  >
             <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-6">
@@ -80,8 +82,8 @@
                         <tr>
                             <td class="col-md-9"><em>Suscripcion TutosYa</em></h4></td>
                             <td class="col-md-1" style="text-align: center"> 2 </td>
-                            <td class="col-md-1 text-center">$13</td>
-                            <td class="col-md-1 text-center">$13</td>
+                            <td class="col-md-1 text-center">$<?php echo $_SESSION['valor']?></td>
+                            <td class="col-md-1 text-center">$<?php echo $_SESSION['valor']?></td>
                         </tr>
                         
                       
@@ -95,7 +97,7 @@
                             </td>
                             <td class="text-center">
                             <p>
-                                <strong>$13</strong>
+                                <strong>$<?php echo $_SESSION['valor']?></strong>
                             </p>
                            
                         </tr>
@@ -103,7 +105,7 @@
                             <td>   </td>
                             <td>   </td>
                             <td class="text-right"><h4><strong>Total: </strong></h4></td>
-                            <td class="text-center text-danger"><h4><strong>$13</strong></h4></td>
+                            <td class="text-center text-danger"><h4><strong>$<?php echo $_SESSION['valor']?></strong></h4></td>
                         </tr>
                     </tbody>
                 </table>
@@ -111,6 +113,8 @@
             
             </div>
         </div>
+        </form>
     </div>
+</div>
 </body>
 </html>

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php session_start();?> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -28,7 +29,7 @@
                     </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="pagos.html">Suscribete</a>
+                <a class="nav-link" href="pagos.php">Suscribete</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="registro.php">Registrate</a>
@@ -43,11 +44,13 @@
       </nav>
 
     <!-- This snippet uses Font Awesome 5 Free as a dependency. You can download it at fontawesome.io! -->
-
-<section class="pricing py-5" >
+  
+  <section class="pricing py-5" >
+  <form method="POST">
     <div class="container" style="margin:100px auto; padding-bottom: 100px ">
       <div class="row">
         <!-- Free Tier -->
+        
         <div class="col-lg-4" >
           <div class="card mb-5 mb-lg-0">
             <div class="card-body" >
@@ -60,10 +63,14 @@
                 <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Public Projects</li>
                 <li><span class="fa-li"><i class="fas fa-check"></i></span>Community Access</li>
               </ul>
-               <a href="factura.html"  class="btn btn-block btn-primary text-uppercase">Comprar</a>
+
+               
+              <a href="factura.php" class="btn btn-block btn-primary text-uppercase">Comprar</a>
+
             </div>
           </div>
         </div>
+ 
         <!-- Plus Tier -->
         <div class="col-lg-4">
           <div class="card mb-5 mb-lg-0">
@@ -78,7 +85,7 @@
                 <li><span class="fa-li"><i class="fas fa-check"></i></span>Community Access</li>
                 
               </ul>
-              <a href="factura.html"  class="btn btn-block btn-primary text-uppercase">Comprar</a>
+              <a href="factura.php"  class="btn btn-block btn-primary text-uppercase">Comprar</a>
             </div>
           </div>
         </div>
@@ -96,12 +103,21 @@
                 <li><span class="fa-li"><i class="fas fa-check"></i></span>Community Access</li>
               
               </ul>
-              <a href="factura.html" class="btn btn-block btn-primary text-uppercase">Comprar</a>
+              <a href="factura.php" class="btn btn-block btn-primary text-uppercase">Comprar</a>
             </div>
           </div>
         </div>
       </div>
     </div>
+    </form>
+
+    <?php
+               unset($_SESSION['valor']);
+                if (!isset($_SESSION['valor'])) {
+                  $_SESSION['valor']=5;
+                  
+                }
+    ?>
   </section>
 </body>
 </html>
