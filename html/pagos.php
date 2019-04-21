@@ -65,8 +65,8 @@
               </ul>
 
                
-              <a href="factura.php" class="btn btn-block btn-primary text-uppercase">Comprar</a>
-
+               <input type="submit" name="valor5" value="Comprar" class="btn btn-block btn-primary text-uppercase" >
+  
             </div>
           </div>
         </div>
@@ -85,7 +85,9 @@
                 <li><span class="fa-li"><i class="fas fa-check"></i></span>Community Access</li>
                 
               </ul>
-              <a href="factura.php"  class="btn btn-block btn-primary text-uppercase">Comprar</a>
+              
+               <input type="submit" name="valor10" value="Comprar" class="btn btn-block btn-primary text-uppercase" >
+           
             </div>
           </div>
         </div>
@@ -103,21 +105,26 @@
                 <li><span class="fa-li"><i class="fas fa-check"></i></span>Community Access</li>
               
               </ul>
-              <a href="factura.php" class="btn btn-block btn-primary text-uppercase">Comprar</a>
+              
+               <input type="submit" name="valor30" value="Comprar" class="btn btn-block btn-primary text-uppercase" >
+                
             </div>
           </div>
         </div>
       </div>
+      <a href="factura.php" style="margin-top:20px;background:green" class="btn btn-block btn-primary text-uppercase" >Generar Factura</a>
     </div>
-    </form>
+</form>
 
     <?php
-               unset($_SESSION['valor']);
-                if (!isset($_SESSION['valor'])) {
-                  $_SESSION['valor']=5;
-                  
-                }
+      if(isset($_POST["valor5"]))
+        $_SESSION['valor']=5;
+      else if(isset($_POST["valor10"]))
+        $_SESSION['valor']=10;
+      else if(isset($_POST["valor30"])){
+        $_SESSION['valor']=30;}
     ?>
+   
   </section>
 </body>
 </html>

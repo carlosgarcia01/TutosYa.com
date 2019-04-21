@@ -27,7 +27,7 @@
                             </a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="pagos.html">Suscribete</a>
+                        <a class="nav-link" href="pagos.php">Suscribete</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="registro.php">Registrate</a>
