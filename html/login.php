@@ -73,15 +73,18 @@
                   $localhost=mysqli_connect("localhost","root","carlosg","tutosya");
                   $select=mysqli_query($localhost,"select * from usuario where usuario='$usu' and contrasena='$contra'");
                   unset($_SESSION['usuario']);
+                  unset($_SESSION['id']);
                   if($select_row=mysqli_fetch_array($select)){
                     if (!isset($_SESSION['usuario'])) {
-                      $_SESSION['usuario']=$_POST['usuario'];
+                      $persona=mysqli_query($localhost,"select * from persona where nombre='$select_row[1]'");
+                      $id=mysqli_fetch_array($persona);
+                      $_SESSION['id']=$id['id'];
                       header('Location: perfil.php');
                     }
                   }else{
                     echo '<h7 style="color: red">Usuario o Contrase&ntildea incorrectas</h7>';
                   }
-                 //  ;
+      
 
                 }
               ?>
