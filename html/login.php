@@ -15,7 +15,7 @@
 <body>
  <!-- This snippet uses Font Awesome 5 Free as a dependency. You can download it at fontawesome.io! -->
 
-<body >
+<body style="background: linear-gradient(to right, #0062E6, #33AEFF);">
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container">
