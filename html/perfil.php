@@ -123,7 +123,8 @@
                 $tel=$_POST['tel'];
                 $id = $_SESSION["id"];
                 mysqli_query($localhost,"update persona set nombre='$nombre', cedula='$cedula', correo='$correo', red_social='$red',telefono='$tel' where id=$id");
-            
+                mysqli_query($localhost,"update usuario set usuario='$nombre' where id=$id");
+                echo "<script>location.replace('perfil.php?persona=ok')</script>";
             }else if(isset($_POST["nueva_m"])){
                 $asg=$_POST['asig'];
                 $desc=$_POST['desc'];
