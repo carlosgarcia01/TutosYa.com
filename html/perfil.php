@@ -40,13 +40,14 @@
 
                     }?>
 
-                    <input type="submit" name="update" value="Actualizar">
+                    <td><input type="submit" name="update" value="Actualizar"></td>
             </div>
             </tbody>
         </table>
 
         <table border=1>
             <thead>
+                <th>id</th>
                 <th>Asignatura</th>
                 <th>Descripcion</th>
                 <th>Valor</th>
@@ -64,11 +65,12 @@
                         $materia=mysqli_query($localhost,"select * from asignatura where  id=$asignatura[2]");   
                         $mater=mysqli_fetch_array($materia);
 
-                        echo "<tr><td><input type='text' name='m_nombre' value=".$mater['nombre']." disabled='true'> </td>";
-                        echo "<td><textarea name='m_descripcion' >".$asignatura['descripcion']."</textarea></td>";
-                        echo "<td><input type='text' name='m_valor' value=".$asignatura['valor']."> </td>";
-                        echo "<td><input type='submit' name='delete' value='borrar'><input type='submit' name='update_m' value='Actualizar'></td> ";
-                        echo "<td><input name='id' value=".$asignatura['id']." type='text' ></td></tr>";
+                        echo "<tr><td><label name='id'>".$asignatura['id']."</label></td>";
+                        echo "<td><label name='m_nombre' disabled='true'>".$mater['nombre']."</label> </td>";
+                        echo "<td><label name='m_descripcion'>".$asignatura['descripcion']."</label></td>";
+                        echo "<td><label  name='m_valor'>".$asignatura['valor']."</label> </td>";
+                        echo "<td><input type='submit' href='persil.php' name='delete'>Borrar</a><a href='actualizarM.php'>Actualizar</a></td></tr> ";
+                        
                     }?>
 
             </div>
@@ -76,6 +78,25 @@
         </table>
         <a href="login.php">Salir</a>
         
+        <table border=1>
+            <thead>
+                <th>Asignatura</th>
+                <th>Descripcion</th>
+                <th>Valor</th>
+                
+            </thead>
+            <tbody>
+            <div class="form-group ">
+                <tr>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                
+                </tr>
+                <tr><td><input type="submit" value="ingresar"></td></tr>
+            </div>
+            </tbody>
+        </table>
         </form>
     </div>
 
