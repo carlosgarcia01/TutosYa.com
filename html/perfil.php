@@ -69,7 +69,7 @@
                         echo "<td><label name='m_nombre' disabled='true'>".$mater['nombre']."</label> </td>";
                         echo "<td><label name='m_descripcion'>".$asignatura['descripcion']."</label></td>";
                         echo "<td><label  name='m_valor'>".$asignatura['valor']."</label> </td>";
-                        echo "<td><input type='submit' href='persil.php' name='delete'>Borrar</a><a href='actualizarM.php'>Actualizar</a></td></tr> ";
+                        echo "<td><a href='delete.php?id=".$asignatura['id']."'>Borrar</a><a href='actualizarM.php?id=".$asignatura['id']."'>Actualizar</a></td></tr> ";
                         
                     }?>
 
@@ -88,12 +88,24 @@
             <tbody>
             <div class="form-group ">
                 <tr>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
+                <td><select id="arac-turu" name="asig" class="form-control" >
+                    <option selected>Asignatura</option>
+
+                    <?php
+                        
+                        $select=mysqli_query($localhost,"Select * from asignatura");
+
+                        while($asignatura=mysqli_fetch_array($select) ){
+                        
+                        echo "<option value='".$asignatura['id']."'>" .$asignatura['nombre']. "</option>";
+                    }?>
+                </select></td>
+               
+                <td><input type="text" name="desc" placeholder="Descripcion"></td>
+                <td><input type="text" name="valor" placeholder="Valor"></td>
                 
                 </tr>
-                <tr><td><input type="submit" value="ingresar"></td></tr>
+                <tr><td><input type="submit" name="nueva_m" value="ingresar"></td></tr>
             </div>
             </tbody>
         </table>
@@ -112,15 +124,18 @@
                 $id = $_SESSION["id"];
                 mysqli_query($localhost,"update persona set nombre='$nombre', cedula='$cedula', correo='$correo', red_social='$red',telefono='$tel' where id=$id");
             
-            }else if(isset($_POST["update_m"])){
-                $m_des=$_POST['m_descripcion'];
-                $m_valor=$_POST['m_valor'];
-               
-                mysqli_query($localhost,"update anuncio set descripcion='$m_des',valor='$m_valor' where id='$m_id' ");
-            }else if(isset($_POST["delete"])){
-                mysqli_query($localhost,"delete from anuncio where id='$m_id' ");
+            }else if(isset($_POST["nueva_m"])){
+                $asg=$_POST['asig'];
+                $desc=$_POST['desc'];
+                $val=$_POST['valor'];
+                $usu=$_SESSION['id'];
+                $res=mysqli_query($localhost,"insert into anuncio (`descripcion`, `asignaturas_id`, `persona_id`, `valor`) VALUES ('$desc', $asg, $usu, $val)");
+                if($res){
+                    echo "<script>location.replace('perfil.php?insert=ok')</script>";
+                }else{
+                    echo "<script>location.replace('perfil.php?insert=Error')</script>";
+                }
             }
-            echo " <script>location.replace('perfil.php?gg=true')</script>";
         }
         
     ?>
