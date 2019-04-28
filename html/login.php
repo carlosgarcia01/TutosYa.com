@@ -79,7 +79,8 @@
                       $persona=mysqli_query($localhost,"select * from persona where nombre='$select_row[1]'");
                       $id=mysqli_fetch_array($persona);
                       $_SESSION['id']=$id['id'];
-                      header('Location: perfil.php');
+                      echo "<script>location.replace('perfil_usuario.php?status=ok')</script>";
+                      //header('Location: perfil.php');
                     }
                   }else{
                     echo '<h7 style="color: red">Usuario o Contrase&ntildea incorrectas</h7>';

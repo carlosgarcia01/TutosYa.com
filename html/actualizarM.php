@@ -37,9 +37,9 @@
         $val=$_POST['valor'];
         $validar=mysqli_query($localhost,"update anuncio set descripcion='$des' , valor=$val  where id=$id and persona_id=$usuario ");
         if($validar){
-            echo "<script>location.replace('perfil.php?status=ok')</script>";
+            echo "<script>location.replace('perfil_usuario.php?status=ok')</script>";
         }else{
-            echo "<script>location.replace('perfil.php?status=Error')</script>";
+            echo "<script>location.replace('perfil_usuario.php?status=Error')</script>";
         }
     }
 ?>
