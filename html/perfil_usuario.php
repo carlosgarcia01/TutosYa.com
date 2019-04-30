@@ -204,37 +204,38 @@
                 </div>
                 <div class="tab-pane text-center gallery" id="favorite">
                     <div class="row" >
-                        <div class="">
-                            <table >
-                                <thead>
-                                    <th>Asignatura</th>
-                                    <th>Descripcion</th>
-                                    <th>Valor</th>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <select  name="asig"  >
-                                                <option selected>Asignatura</option>
+                        <div class="mover">
+                            <div class="form-group ordenar">    
+                                <label for="ciudad">Asignatura</label>
+                            </div>
+                            <div class="form-group ordenar">  
+                                <select  name="asig"  class="form-control">
+                                    <option selected>Asignatura</option>
 
-                                                <?php
-                                                    
-                                                    $select=mysqli_query($localhost,"select * from asignatura");
-
-                                                    while($asignatura=mysqli_fetch_array($select) ){
-                                                    
-                                                    echo "<option value='".$asignatura['id']."'>" .$asignatura['nombre']. "</option>";
-                                                }?>
-                                            </select>
-                                        </td>
-                                    
-                                        <td><input type="text" name="desc" placeholder="Descripcion"></td>
-                                        <td><input type="text" name="valor" placeholder="Valor"></td>
+                                    <?php
                                         
-                                    </tr>
-                                </tbody>
-                            </table>
-                                <input type="submit" name="nueva_m" value="ingresar">
+                                        $select=mysqli_query($localhost,"select * from asignatura");
+
+                                        while($asignatura=mysqli_fetch_array($select) ){
+                                        
+                                        echo "<option value='".$asignatura['id']."'>" .$asignatura['nombre']. "</option>";
+                                    }?>
+                                </select>
+
+                            </div>     
+                            <div class="form-group ordenar">    
+                                <label for="ciudad">Descripcion</label>
+                            </div>
+                            <div class="form-group ordenar">    
+                                <input class="form-control" type='text' id="ciudad" name="desc" placeholder="Descripcion">
+                            </div>  
+                            <div class="form-group ordenar">    
+                                <label for="ciudad">Valor</label>
+                            </div>
+                            <div class="form-group ordenar">    
+                                <input class="form-control" type='text' id="ciudad" name="valor" placeholder="Valor" >
+                            </div>        
+                                <input class="btn btn-success" type="submit" name="nueva_m" value="ingresar">
                         </div>
                     </div>
                 </div>
