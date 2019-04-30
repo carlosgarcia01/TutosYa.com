@@ -152,35 +152,53 @@
                 </div>
                 <div class="tab-pane text-center gallery" id="works">
                     <div class="row">
-                        <div class="">
-                        <table>
-                            <thead>
-                                <th>id</th>
-                                <th>Asignatura</th>
-                                <th>Descripcion</th>
-                                <th>Valor</th>
-                            </thead>
-                            <tbody>
-                            <?php
-                            
-                            $select=mysqli_query($localhost,"Select * from persona where id='$usuario'");
-                            $persona=mysqli_fetch_array($select);
-                            $select=mysqli_query($localhost,"Select * from anuncio where persona_id=$persona[0]");
-                            
-                            while($asignatura=mysqli_fetch_array($select) ){
-                                $materia=mysqli_query($localhost,"select * from asignatura where  id=$asignatura[2]");   
-                                $mater=mysqli_fetch_array($materia);
+                        <div class="mover">
+                        <?php
+                                        
+                                        $select=mysqli_query($localhost,"Select * from persona where id='$usuario'");
+                                        $persona=mysqli_fetch_array($select);
+                                        $select=mysqli_query($localhost,"Select * from anuncio where persona_id=$persona[0]");
+                                        
+                                        while($asignatura=mysqli_fetch_array($select) ){
+                                            $materia=mysqli_query($localhost,"select * from asignatura where  id=$asignatura[2]");   
+                                            $mater=mysqli_fetch_array($materia);
+                                            
+                                            echo "
+                                            <div class='form-group ordenar'>
+                                            <label for='nombre'>Id</label>
+                                            </div>
+                                            <div class='form-group ordenar'>
+                                                <label class='form-control' id='nombre'>".$asignatura['id']."</label>
+                                            </div>
+                                            <div class='form-group ordenar'>
+                                                <label for='nombre'>Nombre</label>
+                                            </div>
+                                            <div class='form-group ordenar'>
+                                                <label class='form-control' id='nombre'>".$mater['nombre']."</label>
+                                                </div>
+                                                <div class='form-group ordenar'>
+                                                <label for='nombre'>Descripcion</label>
+                                            </div>
+                                            <div class='form-group ordenar'>
+                                                <label class='form-control' id='nombre'>".$asignatura['descripcion']." </label> 
+                                                </div>
+                                                <div class='form-group ordenar'>
+                                                <label for='nombre'>Valor</label>
+                                            </div>
+                                            <div class='form-group ordenar'>
+                                                <label class='form-control' id='nombre' >".$asignatura['valor']."</label>
+                                            </div>
 
-                                echo "<tr><td><label name='id'>".$asignatura['id']."</label></td>";
-                                echo "<td><label name='m_nombre' disabled='true'>".$mater['nombre']."</label> </td>";
-                                echo "<td><label name='m_descripcion'>".$asignatura['descripcion']."</label></td>";
-                                echo "<td><label  name='m_valor'>".$asignatura['valor']."</label> </td>";
-                                echo "<td><a href='delete.php?id=".$asignatura['id']."'>Borrar</a><a href='actualizarM.php?id=".$asignatura['id']."'>Actualizar</a></td></tr> ";
-                            
-                            }?>
-                            </tbody>
-                        </table>           
-                                
+                                            <div class='form-group ordenar'>
+                                                <a href='delete.php?id=".$asignatura['id']."'>Borrar</a>
+                                            </div>
+                                            <div class='form-group ordenar'>    
+                                                <a href='actualizarM.php?id=".$asignatura['id']."'>Actualizar</a>
+                                            </div>
+                                            ";
+
+                                            
+                                   }?> 
                         </div>
                     </div>
                 </div>
