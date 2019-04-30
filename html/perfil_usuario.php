@@ -13,6 +13,26 @@
     <link rel="stylesgeet" href="https://rawgit.com/creativetimofficial/material-kit/master/assets/css/material-kit.css">
 </head>
 
+<style>
+    .mover{
+    
+        display:inline-block;
+        margin:0px auto;
+        width:70%;
+    }
+    .mover > div{
+        display:inline-block;
+        width:49%;
+        
+    }
+
+    .mover > div .ordenar{
+        width:49%;
+       
+        display:inline-block;
+    }
+</style>
+
 <?php
     $usuario=$_SESSION['id'];
     $localhost=mysqli_connect("localhost","root","carlosg","tutosya");
@@ -36,6 +56,7 @@
                         <div class="profile">
                                 <div class="avatar">
                                     <img src="https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTU0NjQzOTk4OTQ4OTkyMzQy/ansel-elgort-poses-for-a-portrait-during-the-baby-driver-premiere-2017-sxsw-conference-and-festivals-on-march-11-2017-in-austin-texas-photo-by-matt-winkelmeyer_getty-imagesfor-sxsw-square.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+                                    <a href="login.php">Salir</a>
                                 </div>
                                 <div class="name">
                                     <h3 class="title"><?=$persona['nombre']?></h3>
@@ -57,19 +78,19 @@
                                 <li class="nav-item">
                                     <a class="nav-link active" href="#studio" role="tab" data-toggle="tab">
                                     <i class="material-icons">camera</i>
-                                    Studio
+                                    Perfil
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#works" role="tab" data-toggle="tab">
                                     <i class="material-icons">palette</i>
-                                        Work
+                                        Asignaturas
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#favorite" role="tab" data-toggle="tab">
                                     <i class="material-icons">favorite</i>
-                                        Favorite
+                                        Nueva Asignatura
                                     </a>
                                 </li>
                             </ul>
@@ -81,35 +102,57 @@
                 <div class="tab-pane active text-center gallery" id="studio">
                     <div class="row">
             
-                        <div class="col-md-3 ml-auto">
+                        <div class="mover">
                             <div>
-                                <h3>Nombre</h3>
-                                <input type='text' name='nombre' value="<?=$persona['nombre']?>"> 
-                                <h3>Cedula</h3>
-                                <input type='text' name='cedula' value="<?=$persona['cedula']?>"> 
+                                <div class="form-group ordenar">
+                                    <label for="nombre">Nombre</label>
+                                </div>
+                                <div class="form-group ordenar">
+                                    <input class="form-control" id="nombre" type='text' name='nombre' value="<?=$persona['nombre']?>"> 
+                                </div>
+                                <div class="form-group ordenar">   
+                                    <label for="cc">Cedula</label>
+                                </div>
+                                <div class="form-group ordenar">
+                                    <input class="form-control" type='text' id="cc" name='cc' value="<?=$persona['cedula']?>"> 
+                                </div>
+
+                                <div class="form-group ordenar">
+                                    <label for="corr">Correo</label>
+                                </div>
+                                <div class="form-group ordenar">    
+                                    <input class="form-control" type='text' id="corr" name='correo' value="<?=$persona['correo']?>">
+                                </div>
                             </div>
                             <div>
-                                <h3>Correo</h3>
-                                <input type='text' name='correo' value="<?=$persona['correo']?>">
-                                <h3>Red Social</h3> 
-                                <input type='text' name='red' value="<?=$persona['red_social']?>">
+                                <div class="form-group ordenar">   
+                                    <label for="red">Red Social</label> 
+                                </div>
+                                <div class="form-group ordenar">    
+                                    <input class="form-control" type='text' id="red" name='red' value="<?=$persona['red_social']?>">
+                                </div>
+                                <div class="form-group ordenar">
+                                    <label for="tel">Telefono</label>
+                                </div>
+                                <div class="form-group ordenar">    
+                                    <input class="form-control" type='text' id="tel" name='tel' value="<?=$persona['telefono']?>">
+                                </div>
+                                <div class="form-group ordenar">    
+                                    <label for="ciudad">Ciudad</label>
+                                </div>
+                                <div class="form-group ordenar">    
+                                    <input class="form-control" type='text' id="ciudad" name='ciudad' value="<?=$ciudad[1]?>" disabled='true'>
+                                </div>
                             </div>
-                            <div>
-                                <h3>Telefono</h3>
-                                <input type='text' name='tel' value="<?=$persona['telefono']?>">
-                                <h3>Ciudad</h3>
-                                <input type='text' name='ciudad' value="<?=$ciudad[1]?>" disabled='true'>
-                            </div>
-                            
-                            
-                            <input type="submit" name="update" value="Actualizar">
+
+                            <button class="btn btn-success" type="submit" name="update">Actualizar</button>
                         </div>
                         
                     </div>
                 </div>
                 <div class="tab-pane text-center gallery" id="works">
                     <div class="row">
-                        <div class="col-md-3 ml-auto">
+                        <div class="">
                         <table>
                             <thead>
                                 <th>id</th>
@@ -143,7 +186,7 @@
                 </div>
                 <div class="tab-pane text-center gallery" id="favorite">
                     <div class="row" >
-                        <div class="col-md-3 ml-auto" >
+                        <div class="">
                             <table >
                                 <thead>
                                     <th>Asignatura</th>
