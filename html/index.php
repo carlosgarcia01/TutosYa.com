@@ -61,70 +61,16 @@
                       <div class="col-md-12">
                           <div class="card acik-renk-form" style="background: none; border: none ">
                               <div class="card-body">
-                                  <div class="row">
-                                      
-                                      <div class="col-md-4">
-                                        <div class="form-group ">
-                                          <select id="ilceler" class="form-control" >
-                                              <option selected>Departamento</option>
-                                                <?php
-                                                $localhost=mysqli_connect("localhost","root","carlosg","tutosya");
-                                                $select=mysqli_query($localhost,"Select * from departamento");
-
-                                                while($departamento=mysqli_fetch_array($select) ){
-                                                  
-                                                echo "<option value='".$departamento['id']."'>" .$departamento['nombre']. "</option>";
-                                                }?>
-                                          </select>
-                                        </div>
-                                      </div>
-
-                                      <div class="col-md-4">
-                                        <div class="form-group ">
-                                          <select id="ilceler" class="form-control" name="select">
-                                            <option selected> Ciudad</option>
-                                            <?php
-                                              $localhost=mysqli_connect("localhost","root","carlosg","tutosya");
-                                              $select=mysqli_query($localhost,"Select * from ciudad");
-
-                                              while($ciudad=mysqli_fetch_array($select) ){
-                                                
-                                              echo "<option value='".$ciudad['id']."'>" .$ciudad['nombre']. "</option>";
-                                              }?>
-                                          </select>
-                                        </div>
-                                      </div> 
-
-                                      
-
-
-                                      <div class="col-md-4">
-                                          <div class="form-group ">
-                                              <select id="arac-turu" class="form-control" >
-                                                  <option selected>Asignatura</option>
-
-                                                    <?php
-                                                      $localhost=mysqli_connect("localhost","root","carlosg","tutosya");
-                                                      $select=mysqli_query($localhost,"Select * from asignatura");
-
-                                                      while($asignatura=mysqli_fetch_array($select) ){
-                                                        
-                                                      echo "<option value='".$asignatura['id']."'>" .$asignatura['nombre']. "</option>";
-                                                    }?>
-                                              </select>
-                                          </div>
-                                      </div>
-
-                                  </div>
+                                  
                                   <p class="font-weight-light text-dark">buscar</p>
                                   <div class="row">
                                       <div class="col-md-9">
                                           <div class="form-group ">
-                                              <input type="text" class="form-control" placeholder="¿Que buscas?">
+                                            <a href="comentarios.php" class="btn btn-block btn-primary text-uppercase">Profesores</a>
                                           </div>
                                       </div>
                                       <div class="col-md-3">
-                                          <a href="lista_profesores.php" class="btn btn-block btn-primary text-uppercase">Buscar</a>
+                                          <a href="lista_profesores.php" class="btn btn-block btn-primary text-uppercase">Anuncios Disponibles</a>
                                       </div>
                                   </div>
                               </div>

@@ -43,7 +43,7 @@
 <div class="container" style="margin-top:80px">
 
     <!-- Page Heading -->
-    <h1 class="my-4">Asignaturas en tu ciudad
+    <h1 class="my-4">Profesores
       
     </h1>
   <form method="POST">
@@ -51,28 +51,27 @@
     <?php 
         //if($_POST){
           $localhost=mysqli_connect("localhost","root","carlosg","tutosya");
-          $select=mysqli_query($localhost,"select * from anuncio");
-          
+          $select=mysqli_query($localhost,"select * from persona");
           while($dato=mysqli_fetch_array($select)){
-            $consulta=mysqli_query($localhost,"select * from asignatura where  id=$dato[2]");   
-            $asignatura=mysqli_fetch_array($consulta);
-            $selectComentario=mysqli_query($localhost,"select * from comentario where id_maestro=$dato[persona_id]");
+            $consulta=mysqli_query($localhost,"select * from comentario where id_maestro=$dato[id]");   
+            //$profesor=mysqli_fetch_array($consulta);
             echo "
             <div class='col-lg-6 mb-4'>
             <div class='card h-100'>
               <a href='#'><img class='card-img-top' src='http://placehold.it/700x400' alt=''></a>
               <div class='card-body'>
                 <h4 class='card-title'>
-                  <a href='#'>".$asignatura['nombre']."</a>
-                </h4>
-                ";
-                if($selectComentario){
-                    while($datoCom=mysqli_fetch_array($selectComentario)){
-                        echo "<p class='card-text'>".$datoCom['id_maestro']."</p>";
-                    }
-                   
+                  <label >".$dato['nombre']."</label>
+                </h4>";
+                if($consulta){
+                  while($datoCom=mysqli_fetch_array($consulta)){
+                      echo "<p class='card-text'>".$datoCom['descripcion']."</p>";
+                  }
+                
                 }
+
                 echo "
+                <a href='IngresarCom.php?id=".$dato['id']."'>Ingresar Comentario</a>
               </div>
             </div>
           </div>
