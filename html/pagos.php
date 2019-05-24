@@ -58,10 +58,9 @@
               <h6 class="card-price text-center">$5<span class="period">/mes</span></h6>
               <hr>
               <ul class="fa-ul">
-                <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Destacar 2 anuncio por semana gratis</strong></li>
-                <li><span class="fa-li"><i class="fas fa-check"></i></span>5GB Storage</li>
-                <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Public Projects</li>
-                <li><span class="fa-li"><i class="fas fa-check"></i></span>Community Access</li>
+                <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Destacar un anuncio por semana gratis</strong></li>
+                <li><span class="fa-li"><i class="fas fa-check"></i></span>Cinco publicaciones semanales</li>
+                
               </ul>
 
                
@@ -79,10 +78,9 @@
               <h6 class="card-price text-center">$10<span class="period">/6 meses</span></h6>
               <hr>
               <ul class="fa-ul">
-                <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Destacar 2 anuncio por semana gratis</strong></li>
-                <li><span class="fa-li"><i class="fas fa-check"></i></span>50GB Storage</li>
-                <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Public Projects</li>
-                <li><span class="fa-li"><i class="fas fa-check"></i></span>Community Access</li>
+                <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Destacar dos anuncio por semana gratis</strong></li>
+                <li><span class="fa-li"><i class="fas fa-check"></i></span>Diez publicaciones semanales</li>
+                
                 
               </ul>
               
@@ -99,10 +97,8 @@
               <h6 class="card-price text-center">$30<span class="period">/año</span></h6>
               <hr>
               <ul class="fa-ul">
-                <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Destacar 4 anuncio por semana gratis</strong></li>
-                <li><span class="fa-li"><i class="fas fa-check"></i></span>150GB Storage</li>
-                <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Public Projects</li>
-                <li><span class="fa-li"><i class="fas fa-check"></i></span>Community Access</li>
+                <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Destacar tres anuncio por semana gratis</strong></li>
+                <li><span class="fa-li"><i class="fas fa-check"></i></span>Publicaciones ilimitadas</li>
               
               </ul>
               

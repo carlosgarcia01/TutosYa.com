@@ -109,7 +109,7 @@
 
 
                 <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Registrate</button>
-                <a class="d-block text-center mt-2 small" href="#">Ingresar</a>
+                
                 <hr class="my-4">
               </form>  
 

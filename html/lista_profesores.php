@@ -53,6 +53,8 @@
           $localhost=mysqli_connect("localhost","root","carlosg","tutosya");
           $select=mysqli_query($localhost,"select * from anuncio");
           while($dato=mysqli_fetch_array($select)){
+            $per=mysqli_query($localhost,"select * from persona where id=$dato[3]");
+            $datoPer=mysqli_fetch_array($per);
             $consulta=mysqli_query($localhost,"select * from asignatura where  id=$dato[2]");   
             $asignatura=mysqli_fetch_array($consulta);
             echo "
@@ -63,6 +65,8 @@
                 <h4 class='card-title'>
                   <a href='#'>".$asignatura['nombre']."</a>
                 </h4>
+                <b><p class='card-text'>".$datoPer['nombre']."</p></b>
+                <p class='card-text'>".$datoPer['telefono']."</p>
                 <p class='card-text'>".$dato['descripcion']."</p>
               </div>
             </div>

@@ -81,7 +81,7 @@
                     <tbody>
                         <tr>
                             <td class="col-md-9"><em>Suscripcion TutosYa</em></h4></td>
-                            <td class="col-md-1" style="text-align: center"> 2 </td>
+                            <td class="col-md-1" style="text-align: center"> 1 </td>
                             <td class="col-md-1 text-center">$<?php echo $_SESSION['valor']?></td>
                             <td class="col-md-1 text-center">$<?php echo $_SESSION['valor']?></td>
                         </tr>
