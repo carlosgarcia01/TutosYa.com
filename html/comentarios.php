@@ -71,12 +71,12 @@
                 }
 
                 echo "
-                <a href='IngresarCom.php?id=".$dato['id']."'>Ingresar Comentario</a>
+                <a href='comentarioProfe.php?id=".$dato['id']."'>Ingresar Comentario</a>
               </div>
             </div>
           </div>
             ";
-          //}
+          // <a href='comentarioProfe.php?id=".$dato['id']."'>Ingresar Comentario</a>
         }?>
     </form>  
     <!-- /.row -->
