@@ -1,0 +1,49 @@
+:root {
+    --input-padding-x: 1.5rem;
+    --input-padding-y: .75rem;
+  }
+
+.card {
+    margin: 0 auto;
+  }
+  .card .carousel-item {
+    height: 200px;
+  }
+  body {
+    background: #007bff;
+    background: linear-gradient(to right, #0062E6, #33AEFF);
+  }
+
+  .card .carousel-caption {
+    padding: 0;
+    right: 0;
+    left: 0;
+    color: #3d3d3d;
+  }
+  .card .carousel-caption h3 {
+    color: #3d3d3d;
+  }
+  .card .carousel-caption p {
+    line-height: 30px;
+  }
+  .card .carousel-caption .col-sm-3 {
+    display: flex;
+    align-items: center;
+  }
+  .card .carousel-caption .col-sm-9 {
+    text-align: left;
+  }
+  .navi a {
+      text-decoration:none;
+  }
+  a > .ico {
+      background-color: grey;
+      padding: 10px;
+      
+  }
+  a:hover > .ico {
+      background-color: #666;
+      background: #007bff;
+    background: linear-gradient(to right, #0062E6, #33AEFF);
+  }
+  

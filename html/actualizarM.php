@@ -5,10 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/estilo_comentarioprofe.css" >
+    <link rel="stylesheet" href="../css/all.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
     <title>Document</title>
 </head>
-<body>
-
+<body >
 <?php
     if($_GET['id']){
 
@@ -25,12 +29,47 @@
     }
     
 ?>
-<form method="POST">
-    <input type="text" name="desc" value="<?php echo $consultarUno['descripcion'] ?>">
-    <input type="text" name="valor" value="<?php echo $consultarUno['valor'] ?>">
-    <input type="submit" value="actualizar">    
-</form>  
-    
+
+
+<div class="card col-md-6 mt-5 mb-5">
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="100000">
+    <div class="w-100 carousel-inner" role="listbox">
+      <div class="carousel-item active">
+        <div class="carousel-caption">
+          <div class="row">
+            <div class="col-sm-3">
+              
+            </div>
+                <div class="col-sm-9">
+
+                    
+                    <form method="POST">
+                        
+                        <strong><label for="des">Descripcion Asignatura</label></strong>
+                        <input type="text" id="des" name="desc" value="<?php echo $consultarUno['descripcion'] ?>">
+                        <br/>
+                        <strong><label for="val">Valor Asignatura</label></strong>
+                        <input type="text" id="val" name="valor" value="<?php echo $consultarUno['valor'] ?>">
+                        <br/>
+                        <input type="submit" value="actualizar">    
+                    
+                        
+                    </form>  
+                        
+                </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
 <?php
     if($_POST){
         $des=$_POST['desc'];
